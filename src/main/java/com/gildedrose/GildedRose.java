@@ -47,7 +47,7 @@ class GildedRose {
 				}
 				break;
 			case CONJURED_MANA_CAKE:
-
+				updateQualityBy(currentItem, -2);
 				break;
 			default:
 				updateQualityBy(currentItem, -1);
