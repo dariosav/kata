@@ -17,7 +17,6 @@ public class GildedRoseConjuredItemTest extends AbstractGildedRoseBaseTest {
 
     @Test
     public void updateQualityItemTest() {
-        //This test has to pass when new feature has been implemented
         Item genericItem = new Item(CONJURED_ITEM_NAME, VALID_SELL_IN, VALID_QUALITY);
         assertThatItemHasExpectedValues(genericItem, VALID_SELL_IN - 1, VALID_QUALITY - 2);
     }
@@ -25,7 +24,7 @@ public class GildedRoseConjuredItemTest extends AbstractGildedRoseBaseTest {
     @Test
     public void updateQualityWhenSellInIsPassedTest() {
         Item genericItem = new Item(CONJURED_ITEM_NAME, SELL_IN_EXPIRED, VALID_QUALITY);
-        assertThatItemHasExpectedValues(genericItem, SELL_IN_EXPIRED - 1, VALID_QUALITY - 2);
+        assertThatItemHasExpectedValues(genericItem, SELL_IN_EXPIRED - 1, VALID_QUALITY - 4);
     }
 
     @Test

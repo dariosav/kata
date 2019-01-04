@@ -2,8 +2,6 @@ package com.gildedrose;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 /*
     - Once the sell by date has passed, Quality degrades twice as fast
