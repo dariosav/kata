@@ -30,8 +30,12 @@ public abstract class AbstractGildedRoseBaseTest {
     public static final String SULFURAS = "Sulfuras";
     public static final String CONJURED = "Conjured";
 
-    public static final int SELL_IN_LAST_DAY = 0;
     public static final int FIRST_ITEM = 0;
+    public static final int VALID_SELL_IN = 25;
+    public static final int SELL_IN_EXPIRED = 0;
+    public static final int SELL_IN_5_DAYS_MISSING = 5;
+    public static final int SELL_IN_10_DAYS_MISSING = 10;
+    public static final int VALID_QUALITY = 35;
     public static final int QUALITY_MIN_LIMIT = 0;
     public static final int QUALITY_MAX_LIMIT = 50;
 
@@ -41,20 +45,12 @@ public abstract class AbstractGildedRoseBaseTest {
         app.updateQuality();
         int itemSellIn = app.items[FIRST_ITEM].sellIn;
         int itemQuality = app.items[FIRST_ITEM].quality;
-        assertThat(itemSellIn, is(expectedSellIn));
-        assertThat(itemQuality, is(expectedQuality));
+        assertThat("SellIn differ from expected", itemSellIn, is(expectedSellIn));
+        assertThat("Quality differ from expected",itemQuality, is(expectedQuality));
     }
 
     protected GildedRose createGildeRoseWith(Item item) {
         return new GildedRose(new Item[]{item});
-    }
-
-    protected void assertThatQualityIsNotNegative(int itemQuality) {
-        assertThat(itemQuality, is(greaterThanOrEqualTo(QUALITY_MIN_LIMIT)));
-    }
-
-    protected void assertThatQualityIsNotMoreThan50(int itemQuality) {
-        assertThat(itemQuality, is(lessThanOrEqualTo(QUALITY_MAX_LIMIT)));
     }
 }
 

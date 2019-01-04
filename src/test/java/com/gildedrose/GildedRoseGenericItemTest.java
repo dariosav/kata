@@ -6,7 +6,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /*
-* Test class for geneirc Items
+    - Once the sell by date has passed, Quality degrades twice as fast
+    - The Quality of an item is never negative
+    - The Quality of an item is never more than 50
+
+* Test class for generic Items
 *        assertThat(itemName, not(anyOf(
 *            containsString(AGED),
 *            containsString(BACKSTAGE_PASSES),
@@ -17,22 +21,24 @@ import static org.junit.Assert.assertThat;
 public class GildedRoseGenericItemTest extends AbstractGildedRoseBaseTest {
 
     public static final String GENERIC_ITEM_NAME = "Iron gauntlets";
-    public static final int QUALITY_20 = 20;
-    public static final int GENERIC_ITEM_SELL_IN = 35;
 
     @Test
-    public void updateQualityOnGenericItemTest() {
-
-        Item genericItem = new Item(GENERIC_ITEM_NAME, GENERIC_ITEM_SELL_IN, QUALITY_20);
-        assertThatItemHasExpectedValues(genericItem,34,19);
+    public void updateQualityItemTest() {
+        Item genericItem = new Item(GENERIC_ITEM_NAME, VALID_SELL_IN, VALID_QUALITY);
+        assertThatItemHasExpectedValues(genericItem, VALID_SELL_IN - 1, VALID_QUALITY - 1);
     }
 
     @Test
     public void updateQualityWhenSellInIsPassedTest() {
-        Item genericItem = new Item(GENERIC_ITEM_NAME, SELL_IN_LAST_DAY, QUALITY_20);
-        assertThatItemHasExpectedValues(genericItem,-1,18);
+        Item genericItem = new Item(GENERIC_ITEM_NAME, SELL_IN_EXPIRED, VALID_QUALITY);
+        assertThatItemHasExpectedValues(genericItem, SELL_IN_EXPIRED - 1, VALID_QUALITY - 2);
     }
 
+    @Test
+    public void updateQualityNeverNegativeTest() {
+        Item genericItem = new Item(GENERIC_ITEM_NAME, SELL_IN_EXPIRED, QUALITY_MIN_LIMIT);
+        assertThatItemHasExpectedValues(genericItem, SELL_IN_EXPIRED - 1, QUALITY_MIN_LIMIT);
+    }
 
 }
 
