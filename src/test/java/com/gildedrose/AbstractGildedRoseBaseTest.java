@@ -1,10 +1,6 @@
 package com.gildedrose;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.junit.Assert.*;
 
 
