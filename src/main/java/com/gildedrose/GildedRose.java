@@ -1,5 +1,7 @@
 package com.gildedrose;
-import static com.gildedrose.helpers.ItemHelper.*;
+
+import com.gildedrose.items.GildedRoseItem;
+import com.gildedrose.items.GildedRoseItemFactory;
 
 class GildedRose {
 	public static final String AGED_BRIE = "Aged Brie";
@@ -16,42 +18,9 @@ class GildedRose {
 
 		for (int i = 0; i < items.length; i++) {
 			Item currentItem = items[i];
-			decreaseSellInDay(currentItem);
-			updateQuality(currentItem);
+			GildedRoseItem gildedRoseItem = GildedRoseItemFactory.crateGildedRoseItem(currentItem);
+			gildedRoseItem.updateQuality();
 		}
 	}
-
-	private void updateQuality(Item currentItem) {
-		switch (currentItem.name) {
-		case SULFURAS_HAND_OF_RAGNAROS:
-			break;
-		case AGED_BRIE:
-			updateAgedItemQuality(currentItem);
-			break;
-		case BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT:
-			updateBackStagePassItemQuality(currentItem);
-			break;
-		case CONJURED_MANA_CAKE:
-			updateConjuredItemQauality(currentItem);
-			break;
-		default:
-			updateGenericItem(currentItem);
-		}
-	}
-
-	private void decreaseSellInDay(Item currentItem) {
-		switch (currentItem.name) {
-		case SULFURAS_HAND_OF_RAGNAROS:
-			break;
-		case AGED_BRIE:
-		case BACKSTAGE_PASSES_TO_A_TAFKAL80_ETC_CONCERT:
-		case CONJURED_MANA_CAKE:
-		default:
-			decreaseSellIn(currentItem);
-		}
-	}
-
-
-
 
 }
