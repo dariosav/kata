@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 import com.gildedrose.items.GildedRoseItem;
 import com.gildedrose.items.GildedRoseItemFactory;
 
@@ -15,12 +17,10 @@ class GildedRose {
 	}
 
 	public void updateQuality() {
-
-		for (int i = 0; i < items.length; i++) {
-			Item currentItem = items[i];
-			GildedRoseItem gildedRoseItem = GildedRoseItemFactory.crateGildedRoseItem(currentItem);
-			gildedRoseItem.updateQuality();
-		}
+		Arrays
+			.stream(this.items)
+			.map(GildedRoseItemFactory::crateGildedRoseItem)
+			.forEach(GildedRoseItem::updateQuality);
 	}
 
 }

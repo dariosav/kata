@@ -11,7 +11,6 @@ public class GildedRoseConjuredItem extends AbstractGildedRoseItem {
 	@Override
 	public void updateItemQuality() {
 		this.updateQualityBy(-2);
-
 	}
 
 }
