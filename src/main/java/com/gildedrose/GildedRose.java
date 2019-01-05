@@ -57,7 +57,7 @@ class GildedRose {
 	}
 
 	private void updateQualityBy(Item currentItem, int updateValue) {
-		updateValue = adjustQualityValueIdSellInIsPassed(currentItem, updateValue);
+		updateValue = adjustQualityValueIfSellInIsPassed(currentItem, updateValue);
 		setNewQualityValue(currentItem, updateValue);
 		checkMinQaulityValue(currentItem);
 		checkMaxQualityValue(currentItem);
@@ -82,7 +82,7 @@ class GildedRose {
 	}
 
     /* Once the sell by date has passed, Quality degrades twice as fast */
-	private int adjustQualityValueIdSellInIsPassed(Item currentItem, int updateValue) {
+	private int adjustQualityValueIfSellInIsPassed(Item currentItem, int updateValue) {
 		if (currentItem.sellIn < 0 && updateValue < 0) {
 			updateValue = updateValue * 2;
 		}
