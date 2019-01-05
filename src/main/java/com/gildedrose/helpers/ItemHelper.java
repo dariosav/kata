@@ -29,7 +29,13 @@ public class ItemHelper {
 	public static void updateAgedItemQuality(Item currentItem) {
 		updateQualityBy(currentItem, 1);
 	}
-
+	
+	public static void decreaseSellIn(Item currentItem) {
+		currentItem.sellIn = currentItem.sellIn - 1;
+	}
+	
+	/********************************************** PRIVATE METHODS ****************************************/
+	
 	private static void updateQualityBy(Item currentItem, int updateValue) {
 		updateValue = adjustQualityValueIfSellInIsPassed(currentItem, updateValue);
 		setNewQualityValue(currentItem, updateValue);
@@ -56,14 +62,12 @@ public class ItemHelper {
 	}
 
     /* Once the sell by date has passed, Quality degrades twice as fast */
-	public static int adjustQualityValueIfSellInIsPassed(Item currentItem, int updateValue) {
+	private static int adjustQualityValueIfSellInIsPassed(Item currentItem, int updateValue) {
 		if (currentItem.sellIn < 0 && updateValue < 0) {
 			updateValue = updateValue * 2;
 		}
 		return updateValue;
 	}
 
-	public static void decreaseSellIn(Item currentItem) {
-		currentItem.sellIn = currentItem.sellIn - 1;
-	}
+
 }
