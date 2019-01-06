@@ -25,4 +25,4 @@ $ java -cp gilded-rose-kata-0.0.1-SNAPSHOT.jar com.gildedrose.run.App items.txt
 ```
 *You can find and example of file **items.txt** in the root folder of the repository.*
 ### Author
-If oyu want to know more about the author you can visit my profile on [linkedin](https://www.linkedin.com/in/dariosavarese/).
+If you want to know more about the author you can visit my profile on [linkedin](https://www.linkedin.com/in/dariosavarese/).
