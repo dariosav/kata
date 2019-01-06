@@ -1,0 +1,11 @@
+item1=+5 Dexterity Vest/10/20
+item2=Aged Brie/2/0
+item3=Elixir of the Mongoose/5/7
+item4=Sulfuras, Hand of Ragnaros/0/80
+item5=Sulfuras, Hand of Ragnaros/-1/80
+item6=Backstage passes to a TAFKAL80ETC concert/15/2
+item7=Backstage passes to a TAFKAL80ETC concert/10/49
+item8=Backstage passes to a TAFKAL80ETC concert/5/49
+item9=Conjured Mana Cake/3/6/
+item10=Conjured Health potion/1/20
+item11=+10 Strength Armor/25/48
